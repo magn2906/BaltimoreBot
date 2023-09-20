@@ -30,12 +30,8 @@ var slash = discord.UseSlashCommands(new SlashCommandsConfiguration()
     Services = builtServices
 });
 
-// Use reflection to get all classes that inherit from SlashCommand and register them in my test server
-var slashCommands = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsSubclassOf(typeof(SlashCommand)));
-foreach (var slashCommand in slashCommands)
-{
-    slash.RegisterCommands(slashCommand, 1011925605358514208);
-}
+slash.RegisterCommands(Assembly.GetExecutingAssembly());
+
 
 await discord.ConnectAsync();
 await Task.Delay(-1);

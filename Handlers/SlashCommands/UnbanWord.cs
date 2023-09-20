@@ -5,7 +5,7 @@ using DSharpPlus.SlashCommands;
 
 namespace BaltimoreBot.Handlers.SlashCommands;
 
-public class UnbanWord : SlashCommand
+public class UnbanWord : ApplicationCommandModule
 {
     private readonly IBannedWordService _bannedWordService;
     
